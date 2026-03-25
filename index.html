@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleo — Learn History</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:       #0d1b2a;
+      --navy-mid:   #1a2e44;
+      --navy-light: #243b55;
+      --gold:       #c9a84c;
+      --gold-light: #e8c97e;
+      --gold-pale:  #f5e8c0;
+      --text-muted: #8a9bb0;
+      --body-bg:    #f7f4ee;
+      --white:      #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      background-color: var(--navy);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-light);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, var(--navy-light) 100%);
+      color: var(--white);
+      padding: 108px 24px 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 25% 60%, rgba(201,168,76,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 20%, rgba(201,168,76,0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 100px;
+      padding: 6px 18px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.55rem);
+      font-style: italic;
+      color: var(--gold-pale);
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin: 0 auto 52px;
+      line-height: 1.78;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 17px 34px;
+      border-radius: 12px;
+      transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-cta:hover {
+      background-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+
+    .hero-cta .apple-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .hero-cta .badge-text { text-align: left; line-height: 1.3; }
+    .hero-cta .badge-sub  { font-size: 0.68rem; display: block; font-weight: 400; opacity: 0.75; }
+    .hero-cta .badge-main { font-size: 0.95rem; font-weight: 700; }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 96px 24px;
+      background-color: var(--body-bg);
+    }
+
+    .features .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid rgba(13,27,42,0.07);
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 8px 32px rgba(13,27,42,0.09);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: #5a6a7e;
+      line-height: 1.68;
+    }
+
+    /* ── DOWNLOAD BAND ── */
+    .download-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 88px 24px;
+      text-align: center;
+    }
+
+    .download-band .container {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .download-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .download-band p {
+      color: rgba(255,255,255,0.62);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 12px;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .store-badge:hover {
+      background: rgba(201,168,76,0.14);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .store-badge .apple-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--white);
+      flex-shrink: 0;
+    }
+
+    .store-badge .badge-text { text-align: left; line-height: 1.3; }
+    .store-badge .badge-sub  { font-size: 0.68rem; display: block; font-weight: 300; opacity: 0.7; letter-spacing: 0.03em; }
+    .store-badge .badge-main { font-size: 0.95rem; font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--navy);
+      color: var(--text-muted);
+      padding: 44px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(138,155,176,0.55);
+    }
+
+    .footer-copy a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-copy a:hover { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 72px 20px 88px; }
+      .features, .download-band { padding: 64px 20px; }
+      .nav-links { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Cleo</span>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">History Learning App</span>
+      <h1>Cleo</h1>
+      <p class="hero-tagline">Unlock the Past. Enrich Your Present.</p>
+      <p class="hero-desc">Learn history through beautifully crafted lessons and challenging quizzes. Earn badges, climb leaderboards, and master the ancient world.</p>
+      <a href="https://apps.apple.com/app/id6759570037" class="hero-cta" target="_blank" rel="noopener noreferrer">
+        <!-- Apple logo path -->
+        <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 814 1000">
+          <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 269-317.3 69.7 0 127.9 45.6 171.5 45.6 41.8 0 107.5-48.1 185.9-48.1zm-39.5-277.3c32.7-38.9 56.3-93.7 56.3-148.5 0-7.7-.6-15.4-1.9-21.8-53.5 2-117.6 35.5-155.9 79.9-30.1 33.9-57.8 88.7-57.8 144.1 0 8.3 1.3 16.6 1.9 19.2 3.2.6 8.3 1.3 13.4 1.3 47.9 0 109.3-32 144.2-74.2z"/>
+        </svg>
+        <span class="badge-text">
+          <span class="badge-sub">Download on the</span>
+          <span class="badge-main">App Store</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <p class="section-label">What Cleo offers</p>
+      <h2 class="section-title">History, beautifully taught.</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Crafted Modules</h3>
+          <p>Explore history through carefully written lessons covering the ancient world and beyond, designed to make learning engaging and memorable.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Challenging Quizzes</h3>
+          <p>Test your knowledge at every stage. Complete the Grand Trial for each topic to prove you've truly mastered the material.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Leaderboards</h3>
+          <p>Compete with learners around the world. Climb the global rankings and see how your historical knowledge stacks up.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎖️</div>
+          <h3>Earn Rewards</h3>
+          <p>Unlock unique profile pictures and badges as you progress. Every milestone marks your growing expertise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD BAND -->
+  <section class="download-band">
+    <div class="container">
+      <h2>Start learning for free</h2>
+      <p>Available now on iOS. Download Cleo and begin your journey through history today.</p>
+      <a href="https://apps.apple.com/app/id6759570037" class="store-badge" target="_blank" rel="noopener noreferrer">
+        <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 814 1000">
+          <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 269-317.3 69.7 0 127.9 45.6 171.5 45.6 41.8 0 107.5-48.1 185.9-48.1zm-39.5-277.3c32.7-38.9 56.3-93.7 56.3-148.5 0-7.7-.6-15.4-1.9-21.8-53.5 2-117.6 35.5-155.9 79.9-30.1 33.9-57.8 88.7-57.8 144.1 0 8.3 1.3 16.6 1.9 19.2 3.2.6 8.3 1.3 13.4 1.3 47.9 0 109.3-32 144.2-74.2z"/>
+        </svg>
+        <span class="badge-text">
+          <span class="badge-sub">Download on the</span>
+          <span class="badge-main">App Store</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Cleo</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; 2026 Cleo &nbsp;&middot;&nbsp; <a href="mailto:hello@cleohistory.com">hello@cleohistory.com</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
