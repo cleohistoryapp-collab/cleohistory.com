@@ -15,14 +15,14 @@
     }
 
     :root {
-      --navy:       #0d1b2a;
-      --navy-mid:   #1a2e44;
-      --navy-light: #243b55;
-      --gold:       #c9a84c;
-      --gold-light: #e8c97e;
-      --gold-pale:  #f5e8c0;
-      --text-muted: #8a9bb0;
-      --body-bg:    #f7f4ee;
+      --navy:       #0D47A1;
+      --navy-mid:   #1565C0;
+      --navy-light: #1976D2;
+      --gold:       #D4AF37;
+      --gold-light: #E8C97E;
+      --gold-pale:  #FFF9E6;
+      --text-muted: #757575;
+      --body-bg:    #FAFAFA;
       --white:      #ffffff;
     }
 
@@ -42,7 +42,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(212,175,55,0.2);
     }
 
     .nav-inner {
@@ -96,8 +96,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(ellipse at 25% 60%, rgba(201,168,76,0.09) 0%, transparent 55%),
-        radial-gradient(ellipse at 75% 20%, rgba(201,168,76,0.07) 0%, transparent 50%);
+        radial-gradient(ellipse at 25% 60%, rgba(212,175,55,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 20%, rgba(212,175,55,0.07) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -114,7 +114,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
-      border: 1px solid rgba(201,168,76,0.4);
+      border: 1px solid rgba(212,175,55,0.4);
       border-radius: 100px;
       padding: 6px 18px;
       margin-bottom: 32px;
@@ -163,7 +163,7 @@
     .hero-cta:hover {
       background-color: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+      box-shadow: 0 8px 24px rgba(212,175,55,0.35);
     }
 
     .hero-cta .apple-icon {
@@ -283,7 +283,7 @@
       align-items: center;
       gap: 12px;
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(201,168,76,0.35);
+      border: 1px solid rgba(212,175,55,0.35);
       color: var(--white);
       padding: 14px 28px;
       border-radius: 12px;
@@ -291,7 +291,7 @@
     }
 
     .store-badge:hover {
-      background: rgba(201,168,76,0.14);
+      background: rgba(212,175,55,0.14);
       border-color: var(--gold);
       transform: translateY(-2px);
     }
@@ -313,7 +313,7 @@
       color: var(--text-muted);
       padding: 44px 24px;
       text-align: center;
-      border-top: 1px solid rgba(201,168,76,0.12);
+      border-top: 1px solid rgba(212,175,55,0.12);
     }
 
     .footer-inner {
@@ -424,6 +424,11 @@
           <div class="feature-icon">🎖️</div>
           <h3>Earn Rewards</h3>
           <p>Unlock unique profile pictures and badges as you progress. Every milestone marks your growing expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎁</div>
+          <h3>Free to Learn</h3>
+          <p>Every day you get a generous ad-free allowance of modules and quizzes. Great history education, accessible to everyone.</p>
         </div>
       </div>
     </div>
