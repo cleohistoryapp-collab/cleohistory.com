@@ -825,6 +825,123 @@
     }
 
     /* ─────────────────────────────────────────
+       GEMS SECTION
+    ───────────────────────────────────────── */
+    .gems-section {
+      padding: 100px 24px;
+      background: var(--white);
+    }
+
+    .gems-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #071e50 0%, var(--navy) 55%, var(--navy-mid) 100%);
+      border-radius: 28px;
+      padding: 64px 48px;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gems-card::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%);
+      top: -120px; right: -120px;
+      pointer-events: none;
+    }
+
+    .gems-card::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      pointer-events: none;
+    }
+
+    .gems-icon-big {
+      font-size: 3.2rem;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .gems-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .gems-card p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.75;
+    }
+
+    .gems-flow {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+    }
+
+    .gems-step {
+      flex: 1;
+      max-width: 200px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 28px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gems-step-icon { font-size: 2.2rem; margin-bottom: 14px; }
+
+    .gems-step-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .gems-step-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.45;
+    }
+
+    .gems-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      color: rgba(212,175,55,0.45);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .gems-flow { flex-direction: column; align-items: center; gap: 16px; }
+      .gems-arrow { transform: rotate(90deg); padding: 0; }
+      .gems-step { max-width: 100%; width: 100%; }
+      .gems-card { padding: 40px 24px; }
+    }
+
+    /* ─────────────────────────────────────────
        DOWNLOAD BAND
     ───────────────────────────────────────── */
     .download-band {
@@ -1210,6 +1327,42 @@
 
       <div class="reveal delay-2">
         <span class="grand-trial-badge">🎖️ &nbsp; Earn an exclusive badge for every Grand Trial you conquer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEMS -->
+  <section class="gems-section">
+    <div class="container">
+      <div class="gems-card reveal">
+        <span class="gems-icon-big">💎</span>
+        <h2>Gems power your Grand Trials.</h2>
+        <p>Every time you complete a module or pass a quiz, you earn a gem. Each Grand Trial costs one gem to enter — the more you learn, the more you play.</p>
+        <div class="gems-flow">
+          <div class="gems-step reveal delay-1">
+            <div class="gems-step-icon">📚</div>
+            <div class="gems-step-label">Complete a module</div>
+            <div class="gems-step-desc">Finish any lesson to earn a gem</div>
+          </div>
+          <div class="gems-arrow">→</div>
+          <div class="gems-step reveal delay-2">
+            <div class="gems-step-icon">✅</div>
+            <div class="gems-step-label">Pass a quiz</div>
+            <div class="gems-step-desc">Score 80%+ and earn another gem</div>
+          </div>
+          <div class="gems-arrow">→</div>
+          <div class="gems-step reveal delay-3">
+            <div class="gems-step-icon">⚔️</div>
+            <div class="gems-step-label">Enter the Grand Trial</div>
+            <div class="gems-step-desc">Spend one gem to take on the gauntlet</div>
+          </div>
+          <div class="gems-arrow">→</div>
+          <div class="gems-step reveal delay-4">
+            <div class="gems-step-icon">🏆</div>
+            <div class="gems-step-label">Earn your badge</div>
+            <div class="gems-step-desc">Pass and claim the Topic Master badge</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
