@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cleo — Learn History</title>
+  <title>Cleo: History Quiz and Lessons | Learn History on iOS</title>
+  <meta name="description" content="Explore ancient civilisations, test your knowledge with quizzes and earn badges. Cleo is a free history learning app for iOS, covering ancient Egypt, ancient Greece, the Vietnam War, the Iranian Revolution and more." />
+  <meta name="keywords" content="history app, history quiz, ancient egypt, ancient greece, learn history, history lessons, history trivia, civilisations, quiz app, iOS history app, ancient civilisations" />
+  <link rel="canonical" href="https://cleohistory.com/" />
+  <link rel="icon" href="images/cleo-logo.png" type="image/png" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cleohistory.com/" />
+  <meta property="og:site_name" content="Cleo" />
+  <meta property="og:title" content="Cleo: History Quiz and Lessons | Learn History on iOS" />
+  <meta property="og:description" content="Explore ancient civilisations, test your knowledge with quizzes and earn badges. Free to download on iOS." />
+  <meta property="og:image" content="https://cleohistory.com/images/cleo-logo.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cleo: History Quiz and Lessons | Learn History on iOS" />
+  <meta name="twitter:description" content="Explore ancient civilisations, test your knowledge with quizzes and earn badges. Free to download on iOS." />
+  <meta name="twitter:image" content="https://cleohistory.com/images/cleo-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -126,6 +142,83 @@
     .delay-3 { transition-delay: 0.3s; }
     .delay-4 { transition-delay: 0.4s; }
     .delay-5 { transition-delay: 0.5s; }
+
+    /* ─── Screen-reader only ─── */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ─────────────────────────────────────────
+       TOPICS
+    ───────────────────────────────────────── */
+    .topics-section {
+      padding: 100px 24px;
+      background: var(--body-bg);
+    }
+
+    .topics-section .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .topic-card {
+      background: var(--white);
+      border: 1px solid rgba(13,71,161,0.1);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(13,71,161,0.1);
+      border-color: rgba(212,175,55,0.4);
+    }
+
+    .topic-card-teaser {
+      background: linear-gradient(135deg, var(--gold-pale), #fff);
+      border-color: rgba(212,175,55,0.3);
+    }
+
+    .topic-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .topic-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .topic-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 840px) {
+      .topics-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .topics-grid { grid-template-columns: 1fr; }
+    }
 
     /* ─────────────────────────────────────────
        HERO
@@ -1124,11 +1217,11 @@
   <!-- NAV -->
   <nav id="main-nav">
     <div class="nav-inner">
-      <span class="nav-logo">Cleo</span>
+      <a href="/" class="nav-logo">Cleo</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="support.html">Support</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/support.html">Support</a></li>
       </ul>
     </div>
   </nav>
@@ -1137,9 +1230,9 @@
   <section class="hero">
     <div class="hero-orb-mid"></div>
     <div class="container">
-      <img src="images/cleo-logo.png" alt="Cleo" class="hero-logo" />
+      <img src="images/cleo-logo.png" alt="Cleo History Quiz App" class="hero-logo" />
       <span class="hero-eyebrow">History Learning App</span>
-      <h1>Cleo</h1>
+      <h1>Cleo<span class="sr-only">: History Quiz and Lessons App</span></h1>
       <p class="hero-tagline">Unlock the Past. Enrich Your Present.</p>
       <p class="hero-desc">Learn history through beautifully crafted lessons and challenging quizzes. Earn badges, climb leaderboards, and explore history across every era — free, every day.</p>
       <a href="https://apps.apple.com/app/id6759570037" class="hero-cta" target="_blank" rel="noopener noreferrer">
@@ -1307,6 +1400,47 @@
     </div>
   </section>
 
+  <!-- TOPICS -->
+  <section class="topics-section">
+    <div class="container">
+      <p class="section-label reveal">What you will learn</p>
+      <h2 class="section-title reveal delay-1">Explore history across every era.</h2>
+      <div class="topics-grid">
+
+        <div class="topic-card reveal delay-1">
+          <span class="topic-icon">🏺</span>
+          <h3>Ancient Egypt</h3>
+          <p>From the pharaohs and pyramids to the gods of the Nile, explore one of history's greatest civilisations.</p>
+        </div>
+
+        <div class="topic-card reveal delay-2">
+          <span class="topic-icon">🏛️</span>
+          <h3>Ancient Greece</h3>
+          <p>Discover democracy, philosophy and mythology in the cradle of Western civilisation.</p>
+        </div>
+
+        <div class="topic-card reveal delay-3">
+          <span class="topic-icon">🌿</span>
+          <h3>The Vietnam War</h3>
+          <p>Uncover the political, military and human story behind one of the 20th century's defining conflicts.</p>
+        </div>
+
+        <div class="topic-card reveal delay-4">
+          <span class="topic-icon">🕌</span>
+          <h3>The Iranian Revolution</h3>
+          <p>Explore how Iran transformed from monarchy to Islamic republic in one of history's most dramatic upheavals.</p>
+        </div>
+
+        <div class="topic-card topic-card-teaser reveal delay-5">
+          <span class="topic-icon">✨</span>
+          <h3>More coming soon</h3>
+          <p>New courses and topics are added regularly. Ancient Rome, World War II, the French Revolution, and beyond.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- GRAND TRIAL -->
   <section class="grand-trial">
     <div class="container">
@@ -1427,11 +1561,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">Cleo</div>
+      <a href="/" class="footer-logo">Cleo</a>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="support.html">Support</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/support.html">Support</a></li>
       </ul>
       <p class="footer-copy">
         &copy; 2026 Cleo &nbsp;&middot;&nbsp; <a href="mailto:hello@cleohistory.com">hello@cleohistory.com</a>
@@ -1464,6 +1598,24 @@
     });
 
     revealEls.forEach(el => observer.observe(el));
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cleo: History Quiz and Lessons",
+    "operatingSystem": "iOS",
+    "applicationCategory": "EducationApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "description": "Learn history through beautifully crafted lessons, challenging quizzes and global leaderboards. Covers ancient Egypt, ancient Greece, the Vietnam War, the Iranian Revolution and more.",
+    "url": "https://cleohistory.com",
+    "downloadUrl": "https://apps.apple.com/app/id6759570037"
+  }
   </script>
 
 </body>
